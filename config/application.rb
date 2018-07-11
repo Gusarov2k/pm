@@ -24,3 +24,13 @@ module Pm
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
+
+    config.generators do |g|
+        g.test_framework
+        :rspec, :view_specs => false,
+        :fixture => true,
+        :fixture_replacement => "factory_girl"
+        g.assets = false
+        g.helper = false
+        g.fixture_replacement :factory_girl, :dir => 'spec/factories'
+    end
