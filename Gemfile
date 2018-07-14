@@ -32,6 +32,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# For Authentication
+  gem 'devise'
+#For Authorization
+  gem 'cancancan', '~> 1.7'
+#Simple form
+  gem 'simple_form'
+
+
 group :development, :test do
   gem 'pry-rails'
   gem 'pry'
