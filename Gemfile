@@ -38,6 +38,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'cancancan', '~> 1.7'
 #Simple form
   gem 'simple_form'
+#haml
+gem "haml-rails", "~> 0.9"
+
 
 
 group :development, :test do
