@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :task do
-    assignee nil
-    project nil
-    due_date "2018-07-15 14:49:39"
-    name "MyString"
-    description "MyText"
+	association :user
+	association :project
+	due_date { 2.hours.from_now }
+	name { Faker::Lorem.words(3).join(' ') }
+	description { Faker::Lorem.paragraph }
   end
 end
