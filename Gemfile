@@ -39,7 +39,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Simple form
   gem 'simple_form'
 #haml
-gem "haml-rails", "~> 0.9"
+  gem "haml-rails", "~> 0.9"
 
 
 
