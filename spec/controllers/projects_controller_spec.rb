@@ -54,6 +54,33 @@ require 'rails_helper'
 					expect(response).to render_template :show
 				end
 			end
+
+			describe "GET #new" do
+				it "assigns the requested project to new project" do
+					get :new
+					expect(assigns(:project)).to be_new_record
+				end
+
+				it "renders the :new view" do
+					get :new
+					expect(response).to render_template :new
+				end
+			end
+
+			describe "POST #create" do
+				context "with valid attributes" do
+					it "creates new object" do
+						expect{
+							post :create, project: FactoryBot.attributes_for(:project)
+						}.to change(Project, :count).by(1)
+					end
+
+					it "rendirects to index path" do
+						post :create, project: FactoryBot.attributes_for(:project)
+						expect(response).to redirect_to projects_path
+					end
+				end
+			end
 		end
 
 	end
