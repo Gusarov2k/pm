@@ -93,6 +93,21 @@ require 'rails_helper'
 					expect(response).to render_template :edit
 				end
 			end
+
+			describe "PATCH #update" do
+				context "with valid attributes" do
+					it "updates object" do
+						expect{
+							patch :update, id: subject, project: {name: 'new_project'}
+						}.to change{subject.reload.name}.to('new_project')
+					end
+
+					it "rendirects to index path" do
+						patch :update, id: subject, project: {name: 'new_project'}
+						expect(response).to redirect_to projects_path
+					end
+				end
+			end
 		end
 
 	end
