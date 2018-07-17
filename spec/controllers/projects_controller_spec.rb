@@ -108,6 +108,21 @@ require 'rails_helper'
 					end
 				end
 			end
+
+			describe 'DELETE #destroy' do
+				before(:each) {@project = FactoryBot.create :project, owner: user}
+
+				it "deletes the project" do
+					expect {
+						delete :destroy, id: @project
+					}.to change(Project, :count).by(-1)
+				end
+
+				it "redirects to projects #index" do
+					delete :destroy, id: @project
+					expect(response).to redirect_to projects_path
+				end
+			end
 		end
 
 	end
