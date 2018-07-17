@@ -81,6 +81,18 @@ require 'rails_helper'
 					end
 				end
 			end
+
+			describe "GET #edit" do
+				it "assigns the requested project to subject" do
+					get :edit, id: subject
+					expect(assigns(:project)).to eq(subject)
+				end
+
+				it "renders the :edit view" do
+					get :edit, id: subject
+					expect(response).to render_template :edit
+				end
+			end
 		end
 
 	end
