@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 	before_action :find_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projects = Project.includes(:owner)
+    @project = Project.includes(:owner)
   end
 
   def show
@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
 
   def create
   	@project = current_user.project.new(project_params)
-  	
+
   	if @project.save
   		redirect_to project_path
   	else
@@ -50,6 +50,11 @@ private
 	end
 
 	def project_params
-		params.require(:project).permit(:name)
+		params.require(:project).permit(:name, tasks_attributes: task_params)
 	end
+
+  def task_params
+    [:id, :description,:due_date, :_destroy, :user_id, :name]
+  end
+
 end

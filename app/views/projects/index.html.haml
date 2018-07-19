@@ -1,16 +1,14 @@
-%table.table
-  %thead
-    %tr
-      %th{:scope => "col"}= Project.human_attribute_name(:name)
-      %th{:scope => "col"}= Project.human_attribute_name(:owner)
-      %th{:scope => "col"} Actions
-  %tbody
-    - @projects.each do |p|
-      %tr
-        %td= link_to p.name, project_path(p)
-        %td= p.owner.email
-        %td
-          = link_to 'Edit', edit_project_path(p)
-          ||
-          = link_to 'delete', project_path(p), method: :delete, data: {confirm: 'sure?'}
-= link_to 'New', new_project_path, class: 'btn'
+.fildset
+  = nested_form_for @project do |f|
+    = f.input :name
+    = f.fields_for :tasks do |task_form|
+      - if task_form.object.new_record?
+        = task_form.association :user, label_method: :email, value_method: :id
+        = task_form.input :name
+        = task_form.input :description, as: :text
+        = task_form.input :due_date
+        = task_form.link_to_remove "Remove this task"
+
+        %p
+          = f.link_to_add "Add a task", :tasks
+          = f.submit
