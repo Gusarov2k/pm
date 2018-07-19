@@ -5,5 +5,5 @@ class Project < ActiveRecord::Base
   validates :name, length: {in: 4..30}
   validates :user, presence: true
 
-  accepts_nested_atributes_for :tasks, allow_destroy: true
+  accepts_nested_attributes_for :tasks, allow_destroy: true
 end
