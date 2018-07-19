@@ -42,6 +42,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem "haml-rails", "~> 0.9"
 #bootstrap
   gem "bootstrap", "~> 4.1.1"
+#gem nested_form
+  gem "nested_form"
 
 
 
