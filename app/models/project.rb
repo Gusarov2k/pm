@@ -6,4 +6,5 @@ class Project < ActiveRecord::Base
   validates :user, presence: true
 
   accepts_nested_attributes_for :tasks, allow_destroy: true
+
 end
