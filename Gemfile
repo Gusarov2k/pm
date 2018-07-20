@@ -44,7 +44,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem "bootstrap", "~> 4.1.1"
 #gem nested_form
   gem "nested_form"
-
+# Gemfile for Rails 3+, Sinatra, and Merb
+  gem 'will_paginate', '~> 3.1.0'
 
 
 group :development, :test do
