@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 	before_action :find_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @project = Project.includes(:owner)
+    @project = Project.new.tasks.new
   end
 
   def show
