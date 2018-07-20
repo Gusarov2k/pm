@@ -55,6 +55,9 @@ group :development, :test do
   gem 'pry-remote'
   gem 'factory_bot_rails'
   gem 'faker', '~> 1.2.0'
+#for Better Errors replaces the standard Rails error page with a much better and more useful error page 
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do
