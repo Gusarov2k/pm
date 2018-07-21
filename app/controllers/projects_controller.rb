@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 	before_action :find_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @project = Project.new.tasks.new
+    @project = Project.includes(:user)
   end
 
   def show
