@@ -37,7 +37,7 @@ require 'rails_helper'
 
 		context "when user logged id" do
 			let(:user) {FactoryBot.create(:user)}
-			subject {FactoryBot.create(:project, owner: user)}
+			subject {FactoryBot.create(:project)}
 
 			before do
 				sign_in user
@@ -110,7 +110,7 @@ require 'rails_helper'
 			end
 
 			describe 'DELETE #destroy' do
-				before(:each) {@project = FactoryBot.create :project, owner: user}
+				before(:each) {@project = FactoryBot.create :project}
 
 				it "deletes the project" do
 					expect {
