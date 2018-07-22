@@ -14,10 +14,10 @@ require 'rails_helper'
 
 		context "when user logged in" do
 			let(:user) {FactoryBot.create(:user)}
-			subject {FactoryBot.create(:project, owner: user)}
+			subject {FactoryBot.create(:project)}
 
 			before do
-				sing_in user
+				sign_in user
 			end
 
 			describe "GET #index" do
@@ -40,7 +40,7 @@ require 'rails_helper'
 			subject {FactoryBot.create(:project, owner: user)}
 
 			before do
-				sing_in user
+				sign_in user
 			end
 
 			describe "GET #show" do
